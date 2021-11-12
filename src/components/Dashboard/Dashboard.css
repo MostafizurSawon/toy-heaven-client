@@ -1,0 +1,24 @@
+.admin-area {
+  background: transparent;
+  background-image: url(https://image.freepik.com/free-photo/creative-shot-male-with-his-feet-water-st-maarten-caribbean_181624-4442.jpg);
+  color: white;
+  height: 100vh;
+}
+.admin-container {
+  overflow-x: hidden;
+  background-image: url("https://images.unsplash.com/photo-1516091877740-fde016699f2c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.admin-menu {
+  list-style: none;
+  cursor: pointer;
+}
+.admin-menu:hover {
+  color: rgb(226, 4, 4);
+}
+
+.bg-second {
+  background-image: url("https://images.unsplash.com/photo-1608922962250-66b89f5deb06?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=918&q=80");
+  color: white;
+}

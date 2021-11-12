@@ -1,0 +1,69 @@
+.activeStyleLogo {
+  font-size: 18px;
+  border-bottom: 2px solid rgb(7, 120, 148);
+  padding: 5px;
+  transition-duration: 0.3s;
+}
+
+.logo-text-first {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.logo-text-first:hover {
+  color: rgb(72, 75, 72);
+}
+
+.customLogo {
+  text-decoration: none;
+  margin-left: 10px;
+  font-weight: 700;
+}
+
+.customLogo:hover {
+  border-radius: 3px;
+  padding: 5px;
+  transition-duration: 0.2s;
+}
+
+.custom {
+  text-decoration: none;
+  color: rgb(56, 54, 54);
+  margin-left: 0px;
+  font-size: 20px;
+}
+
+.custom:hover {
+  color: rgb(117, 110, 110);
+  border-bottom: 2px solid rgb(105, 109, 106);
+  padding-bottom: 5px;
+  border-radius: 3px;
+}
+
+.custom-logout {
+  text-decoration: none;
+  color: rgb(245, 243, 243);
+  margin-left: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: rgb(231, 39, 39);
+  padding: 8px 20px;
+}
+
+.custom-logout:hover {
+  color: rgb(245, 243, 243);
+  background-color: rgb(250, 52, 45);
+}
+
+.activeStyle {
+  color: rgba(3, 42, 54, 0.733);
+  padding: 5px;
+  border-bottom: 2px solid rgb(8, 160, 165);
+  border-radius: 3px;
+  transition-duration: 0.3s;
+}
+
+.header-pic-size {
+  height: 40px;
+  width: 40px;
+}

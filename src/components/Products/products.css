@@ -1,0 +1,16 @@
+.bg-custom {
+  background-image: url(https://image.freepik.com/free-photo/creative-shot-male-with-his-feet-water-st-maarten-caribbean_181624-4442.jpg);
+  background-size: cover;
+}
+
+.image-height {
+  height: 250px;
+}
+
+.bg-products{
+  background-image: url(https://image.freepik.com/free-vector/kids-zone-neon-text-with-toy-car_1262-15902.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+}
