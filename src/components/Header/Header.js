@@ -6,6 +6,7 @@ import './Header.css';
 import useAuth from './../../hooks/useAuth';
 import { styled } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
+import logo from "./../../images/logo.gif";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -38,14 +39,15 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 const Header = () => {
     const { user, logout } = useAuth();
+    console.log(user);
     return (
         <>
             <Navbar bg="light" variant="light" className="justify-content-end" sticky="top" collapseOnSelect expand="lg" >
                 <Container>
                     <Navbar.Brand>
                     <Nav.Link> 
-                        <NavLink className="customLogo" activeClassName="activeStyleLogo" exact="true" to="/">
-                            <span className="logo-text-first"><i class="fas fa-jedi"></i> TOY HEAVEN</span>
+                        <NavLink exact="true" to="/">
+                            <img className="w-50" src={logo} alt="" />
                         </NavLink>
                     </Nav.Link>
                     </Navbar.Brand>

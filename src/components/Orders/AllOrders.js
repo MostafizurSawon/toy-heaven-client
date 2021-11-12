@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const AllOrders = () => {
   const { user } = useAuth();
-    const [products, setServices] = useState([]);
+    const [products, setProducts] = useState([]);
     const [isDelete, setIsDelete] = useState(null);
     const [title, setTitle] = useState("Click here");
 
@@ -16,7 +18,7 @@ const AllOrders = () => {
     useEffect(() => {
       fetch("http://localhost:5000/login-orders")
         .then((response) => response.json())
-        .then((data) => setServices(data));
+        .then((data) => setProducts(data));
     }, [isDelete]);
 
 // delete an user
@@ -42,10 +44,10 @@ const handleDeleteOrder = (id) => {
 return (
     <div>
         <h2 >All user : {products.length}</h2>
-        <Table striped bordered hover>
+        <Table responsive="sm">
                 <thead>
                 <tr>
-                    <th>Place name</th>
+                    <th>Toy Details</th>
                     <th>User Info</th>
                     <th>status</th>
                     <th>Action</th>
@@ -83,7 +85,9 @@ return (
                     
                 </td>
                 <td>
-                <button onClick={() => handleDeleteOrder(product._id)} className="btn btn-danger">Delete</button>
+                <Button onClick={() => handleDeleteOrder(product._id)} variant="contained" color="error" startIcon={<DeleteIcon />}>
+                      Delete
+                    </Button>
                 </td>
             </tr>
             </tbody>

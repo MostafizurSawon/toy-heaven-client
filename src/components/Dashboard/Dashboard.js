@@ -21,12 +21,15 @@ import AdminRoute from '../LoginAndRegistration/AdminRoute/AdminRoute';
 import MyOrders from '../Orders/MyOrders';
 import AddProduct from '../Products/AddProduct';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
-import AllOrders from './../Orders/AllOrders';
+import AllOrders from '../Orders/AllOrders';
 import { NavLink } from 'react-router-dom';
 import GiveReview from './GiveReview';
+import Pay from './Pay';
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
 
-const drawerWidth = 200;
-const drawerHeight = 400;
+const drawerWidth = 320;
+const drawerHeight = 350;
 
 
 function Dashboard(props) {
@@ -40,18 +43,26 @@ function Dashboard(props) {
 
     const drawer = (
         <div>
-            <Toolbar />
+            {/* <Toolbar /> */}
+            <h2 className="text-center my-4">DashBoard</h2>
             <Divider />
             <Link to={`${url}/my-orders`}><Button color="success">My Orders</Button></Link>
+            <br />
+            <Link to={`${url}/pay`}><Button color="success">Pay Now</Button></Link>
+            <br />
             <Link to={`${url}/my-review`}><Button color="success">Give a review</Button></Link>
+            <br />
             {admin && <Box>
                 <Link to={`${url}/allOrders`}><Button color="success">All Orders</Button></Link>
+                <br />
                 <Link to={`${url}/makeAdmin`}><Button color="success">Make Admin</Button></Link>
-                <Link to={`${url}/add-product`}><Button color="success">Add Product</Button></Link>
-
-                <NavLink className=" d-flex justify-content-center text-danger mt-5" activeClassName="activeStyle" to="/register" onClick={logout}>Logout <i className="ms-2 fas fa-sign-out-alt"></i>
-                        </NavLink>
+                <br />
+                <Link to={`${url}/add-product`}><Button color="primary"><Fab sx={{ mr: 2 }} size="small" color="primary" aria-label="add">
+  <AddIcon />
+</Fab>Add Product</Button></Link>
             </Box>}
+            <Link to="/register" onClick={logout}><Button color="error"> Logout <i className="ms-2 fas fa-sign-out-alt"></i></Button>
+            </Link>
         </div>
     );
 
@@ -67,7 +78,7 @@ function Dashboard(props) {
                     ml: { sm: `${drawerWidth}px` },
                 }}
             >
-                <Toolbar>
+                {/* <Toolbar>
                     <IconButton
                         color="success"
                         aria-label="open drawer"
@@ -87,7 +98,7 @@ function Dashboard(props) {
                         </NavLink>
 
                     </Typography>
-                </Toolbar>
+                </Toolbar> */}
             </AppBar> 
             <Box
                 component="nav"
@@ -128,8 +139,14 @@ function Dashboard(props) {
                 <Toolbar />
 
                 <Switch>
+                    <Route exact path={`${path}`}>
+                        <MyOrders></MyOrders>
+                    </Route>
                     <Route exact path={`${path}/my-orders`}>
                         <MyOrders></MyOrders>
+                    </Route>
+                    <Route exact path={`${path}/pay`}>
+                        <Pay></Pay>
                     </Route>
                     <Route exact path={`${path}/my-review`}>
                         <GiveReview></GiveReview>

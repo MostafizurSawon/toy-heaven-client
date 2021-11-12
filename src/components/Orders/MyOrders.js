@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import useAuth from './../../hooks/useAuth';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 import './Order.css';
 
 const MyOrders = () => {
     const { user } = useAuth();
-    const [services, setServices] = useState([]);
+    const [products, setProducts] = useState([]);
     const [isDelete, setIsDelete] = useState(null);
         useEffect(() => {
           fetch("http://localhost:5000/login-orders")
             .then((response) => response.json())
-            .then((data) => setServices(data));
+            .then((data) => setProducts(data));
         }, [isDelete]);
 
         // delete an user
@@ -38,10 +40,10 @@ const MyOrders = () => {
             <h2 className="my">Data For : {user.email}</h2>
             <br />
             <div className="login-orders">
-            <Table striped bordered hover>
+            <Table responsive="sm">
                 <thead>
                 <tr>
-                    <th>Place name</th>
+                    <th>Toy Details</th>
                     <th>User Info</th>
                     
                     <th>status</th>
@@ -50,14 +52,14 @@ const MyOrders = () => {
                 </thead>
                
             
-            {services.filter(service => service.email === user.email)
-             .map(service => (
-                 <tbody key={service._id}>
+            {products.filter(product => product.email === user.email)
+             .map(product => (
+                 <tbody key={product._id}>
                     <tr>
                     <td>
-                        {service.name}
+                        {product.name}
                         <br />
-                       Price : ${service.price}
+                       Price : ${product.price}
                        
                     </td>
                     <td>
@@ -65,19 +67,21 @@ const MyOrders = () => {
                             Name :  {user.displayName} 
                         </h6>
                         <h6>
-                            Phone : {service.phone}
+                            Phone : {product.phone}
                         </h6>
-                       Address : {service.address}
+                       Address : {product.address}
                     </td>
                     
                     <td>
                         <div className="bg-danger p-2 text-white">
-                            {service.status}
+                            {product.status}
                         </div>
                         
                     </td>
                     <td>
-                    <button onClick={() => handleDeleteOrder(service._id)} className="btn btn-danger">Delete</button>
+                    <Button onClick={() => handleDeleteOrder(product._id)} variant="contained" color="error" startIcon={<DeleteIcon />}>
+                      Delete
+                    </Button>
                     </td>
                 </tr>
                 </tbody>

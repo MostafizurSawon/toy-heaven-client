@@ -1,28 +1,26 @@
-.footer{
-    background-color: rgb(37, 35, 35);
-    color: white;
+.footer {
+  background-color: rgb(216, 216, 189);
+  color: rgb(37, 34, 34);
 }
 
-.footer-border{
-    border-bottom: 1px solid white;
-    width: 10%;
+.footer-border {
+  border-bottom: 1px solid white;
+  width: 10%;
 }
 
-a{
-    text-decoration: none;
-    color: white;
+a {
+  text-decoration: none;
+  color: white;
 }
 
-.footer-icon:hover{
-    color: rgb(77, 226, 17);
+.footer-icon:hover {
+  color: rgb(77, 226, 17);
 }
-a:hover{
-    color: greenyellow;
+a:hover {
+  color: greenyellow;
 }
 
-
-
-.fab:hover{
-    color: blue;
-    font-size: 17px;
+.fab:hover {
+  color: blue;
+  font-size: 17px;
 }

@@ -1,5 +1,5 @@
 .custom-banner {
-  background-image: url(../../../images/bbb.gif);
+  background-image: url(../../../images/banner.jpg);
   /* background-image: url(../../../images/bb.gif); */
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,16 +17,31 @@
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
 }
+.banner-span {
+  color: gold;
+  font-weight: 800;
+  font-size: 60px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.banner-span:hover {
+  margin-bottom: 5px;
+  margin-left: 5px;
+  transition: 1s;
+  color: yellow;
+}
 
 .banner-button {
   background-color: white;
-  padding: 20px 40px;
+  padding: 10px 30px;
   border: 0;
   font-weight: 600;
-  margin: 20px 0;
+  margin-left: 5px;
+  border-radius: 30px;
 }
 
 .banner-button:hover {
-  background-color: rgb(11, 153, 153);
+  background-color: rgb(219, 195, 134);
   color: white;
 }

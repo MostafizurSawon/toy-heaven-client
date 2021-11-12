@@ -1,6 +1,6 @@
 .activeStyleLogo {
   font-size: 18px;
-  border-bottom: 2px solid rgb(7, 120, 148);
+  color: rgb(176, 179, 6);
   padding: 5px;
   transition-duration: 0.3s;
 }
@@ -14,18 +14,6 @@
   color: rgb(72, 75, 72);
 }
 
-.customLogo {
-  text-decoration: none;
-  margin-left: 10px;
-  font-weight: 700;
-}
-
-.customLogo:hover {
-  border-radius: 3px;
-  padding: 5px;
-  transition-duration: 0.2s;
-}
-
 .custom {
   text-decoration: none;
   color: rgb(56, 54, 54);
@@ -34,10 +22,10 @@
 }
 
 .custom:hover {
-  color: rgb(117, 110, 110);
-  border-bottom: 2px solid rgb(105, 109, 106);
-  padding-bottom: 5px;
-  border-radius: 3px;
+  color: rgb(37, 224, 37);
+  /* border-bottom: 2px solid rgb(105, 109, 106); */
+  padding-bottom: 2px;
+  /* border-radius: 3px; */
 }
 
 .custom-logout {
@@ -56,10 +44,8 @@
 }
 
 .activeStyle {
-  color: rgba(3, 42, 54, 0.733);
+  color: rgb(176, 179, 6);
   padding: 5px;
-  border-bottom: 2px solid rgb(8, 160, 165);
-  border-radius: 3px;
   transition-duration: 0.3s;
 }
 
