@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Container, Image, Nav, Navbar, Row } from 'react-bootstrap';
+import {  Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import './Header.css';

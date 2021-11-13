@@ -1,7 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import './Footer.css';
-import footlogo from "./../../images/bb.gif"
 
 const Footer = () => {
     return (

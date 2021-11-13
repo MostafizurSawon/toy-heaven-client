@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
-import useAuth from '../../hooks/useAuth';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useForm } from "react-hook-form";
 
 const AllOrders = () => {
-  const { user } = useAuth();
     const [products, setProducts] = useState([]);
     const [isDelete, setIsDelete] = useState(null);
-
-    // const [orders, setOrders] = useState([]);
   const { register, handleSubmit } = useForm();
-
-  const [status, setStatus] = useState("");
   const [orderId, setOrderId] = useState("");
 
     useEffect(() => {
