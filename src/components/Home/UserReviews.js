@@ -10,7 +10,7 @@ import Rating from '@mui/material/Rating';
 const UserReviews = () => {
         const [reviews, setReviews] = useState([]);
         useEffect(() => {
-          fetch("http://localhost:5000/add-review")
+          fetch("https://murmuring-dusk-02031.herokuapp.com/add-review")
             .then((response) => response.json())
             .then((data) => setReviews(data));
         }, []);

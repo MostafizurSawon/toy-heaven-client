@@ -10,7 +10,7 @@ import Footer from './../Footer/Footer';
 const AllProducts = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-      fetch("http://localhost:5000/products")
+      fetch("https://murmuring-dusk-02031.herokuapp.com/products")
         .then((response) => response.json())
         .then((data) => setProducts(data));
     }, []);

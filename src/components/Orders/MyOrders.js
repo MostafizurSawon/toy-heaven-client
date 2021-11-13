@@ -10,7 +10,7 @@ const MyOrders = () => {
     const [products, setProducts] = useState([]);
     const [isDelete, setIsDelete] = useState(null);
         useEffect(() => {
-          fetch("http://localhost:5000/login-orders")
+          fetch("https://murmuring-dusk-02031.herokuapp.com/login-orders")
             .then((response) => response.json())
             .then((data) => setProducts(data));
         }, [isDelete]);
@@ -20,7 +20,7 @@ const MyOrders = () => {
             // console.log(id);
             const proceed = window.confirm(`Sure you want to delete?`);
             if(proceed) {
-                fetch(`http://localhost:5000/deleteOrder/${id}`, {
+                fetch(`https://murmuring-dusk-02031.herokuapp.com/deleteOrder/${id}`, {
               method: "DELETE",
               headers: { "Content-type": "application/json" },
             })

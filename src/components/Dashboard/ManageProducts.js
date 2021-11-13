@@ -7,7 +7,7 @@ const ManageProducts = () => {
     const [products, setProducts] = useState([]);
     const [isDelete, setIsDelete] = useState(null);
     useEffect(() => {
-      fetch("http://localhost:5000/products")
+      fetch("https://murmuring-dusk-02031.herokuapp.com/products")
         .then((response) => response.json())
         .then((data) => setProducts(data));
     }, [isDelete]);
@@ -17,7 +17,7 @@ const handleDeleteOrder = (id) => {
     // console.log(id);
     const proceed = window.confirm(`Are you sure you want to delete?`);
     if(proceed) {
-        fetch(`http://localhost:5000/deleteProduct/${id}`, {
+        fetch(`https://murmuring-dusk-02031.herokuapp.com/deleteProduct/${id}`, {
       method: "DELETE",
       headers: { "Content-type": "application/json" },
     })

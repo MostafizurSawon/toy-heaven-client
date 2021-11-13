@@ -24,10 +24,6 @@ function App() {
       <Router>
         
         <Switch>
-        
-          {/* <Route>
-          <Header></Header>
-          </Route> */}
           <Route exact path="/">
             <Home></Home>
           </Route>
@@ -40,19 +36,12 @@ function App() {
           <Route path="/add-product">
             <AddProduct></AddProduct>
           </Route>
-          <Route path="/all-products">
+          <Route exact path="/all-products">
             <AllProducts></AllProducts>
           </Route>
-          {/* <PrivateRoute path="/orders">
-            <MyOrders></MyOrders>
-          </PrivateRoute> */}
-          {/* <PrivateRoute path="/all-orders">
-            <AllOrders></AllOrders>
-          </PrivateRoute> */}
           <PrivateRoute exact path="/products/:productId">
             <TakeProduct></TakeProduct>
           </PrivateRoute> 
-          
           <Route path="/register">
             <Register></Register>
           </Route>

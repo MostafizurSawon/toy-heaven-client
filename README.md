@@ -1,6 +1,9 @@
+# niche-website-client-side-MostafizurSawon
+
 # Live Site
 
-https://toy-heaven.web.app/
+Client : https://toy-heaven.web.app/
+Server : https://murmuring-dusk-02031.herokuapp.com/
 
 ## About this website
 
@@ -9,11 +12,11 @@ There are 6 section is the home page including Header, banner, products , rating
 
 ## About This Site's Key Feature
 
-** A normal user can see toy without signing in.
-** User has to login to buy a product.
-** There are two different dashboard version for admin and normal logged in user.  
-** User can a give ratings which will be posted on the home page.
-\*\* Admin can add, manage, delete products/orders and even make another admin.
+- A normal user can see toy without signing in.
+- User has to login to buy a product.
+- There are two different dashboard version for admin and normal logged in user.
+- User can a give ratings which will be posted on the home page.
+- Admin can add, manage, delete products/orders and even make another admin.
 
 ## I have used the followings :-
 

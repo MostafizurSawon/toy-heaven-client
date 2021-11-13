@@ -3,14 +3,21 @@ import { Table } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useForm } from "react-hook-form";
 
 const AllOrders = () => {
   const { user } = useAuth();
     const [products, setProducts] = useState([]);
     const [isDelete, setIsDelete] = useState(null);
 
+    // const [orders, setOrders] = useState([]);
+  const { register, handleSubmit } = useForm();
+
+  const [status, setStatus] = useState("");
+  const [orderId, setOrderId] = useState("");
+
     useEffect(() => {
-      fetch("http://localhost:5000/login-orders")
+      fetch("https://murmuring-dusk-02031.herokuapp.com/login-orders")
         .then((response) => response.json())
         .then((data) => setProducts(data));
     }, [isDelete]);
@@ -20,7 +27,7 @@ const handleDeleteOrder = (id) => {
     // console.log(id);
     const proceed = window.confirm(`Sure you want to delete?`);
     if(proceed) {
-        fetch(`http://localhost:5000/deleteOrder/${id}`, {
+        fetch(`https://murmuring-dusk-02031.herokuapp.com/deleteOrder/${id}`, {
       method: "DELETE",
       headers: { "Content-type": "application/json" },
     })
@@ -34,6 +41,23 @@ const handleDeleteOrder = (id) => {
         }
       });
     }
+  };
+
+  // const status = "apporved";
+  const handleOrderId = (id) => {
+    setOrderId(id);
+    console.log(id);
+  };
+
+  const onSubmit = (data) => {
+    console.log(data, orderId);
+    fetch(`https://murmuring-dusk-02031.herokuapp.com/statusUpdate/${orderId}`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => console.log(result));
   };
 return (
     <div>
@@ -74,11 +98,17 @@ return (
                 </td>
                 
                 <td>
-                    <div className="bg-danger p-2 text-white">
-                    {product.status}
-                    </div>
-                    
-                </td>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <select
+                    onClick={() => handleOrderId(product._id)}
+                    {...register("status")}
+                  >
+                    <option value={product?.status}>{product?.status}</option>
+                    <option value="approve">Approve</option>
+                  </select>
+                  <input type="submit" />
+                </form>
+              </td>
                 <td>
                 <Button onClick={() => handleDeleteOrder(product._id)} variant="contained" color="error" startIcon={<DeleteIcon />}>
                       Delete

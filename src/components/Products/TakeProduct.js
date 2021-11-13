@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Header from '../Header/Header';
 import './products.css';
@@ -13,7 +12,7 @@ const TakeProduct = () => {
     const [isUpdate, setIsUpdated] = useState(null);
     const [product, setService] = useState({});
     useEffect(() => {
-      fetch(`http://localhost:5000/singleproduct/${productId}`)
+      fetch(`https://murmuring-dusk-02031.herokuapp.com/singleproduct/${productId}`)
         .then((res) => res.json())
         .then((data) => setService(data));
     }, [productId, isUpdate]);
@@ -24,7 +23,7 @@ const TakeProduct = () => {
 
     const onSubmit = (data) => {
       console.log(data);
-      fetch("http://localhost:5000/add-orders", {
+      fetch("https://murmuring-dusk-02031.herokuapp.com/add-orders", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(data),

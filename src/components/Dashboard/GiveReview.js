@@ -9,7 +9,7 @@ const GiveReview = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data);
-        fetch("http://localhost:5000/add-review", {
+        fetch("https://murmuring-dusk-02031.herokuapp.com/add-review", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(data),
