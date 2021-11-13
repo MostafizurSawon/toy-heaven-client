@@ -18,8 +18,8 @@ const UserReviews = () => {
 
     return (
         <div>
-            <div className="mt-5 text-center bg-info text-light bold py-5">
-              <h1 className="banner-text">Our users Review</h1>
+            <div className="mt-5 text-center bg-light bold py-5">
+              <h1 className="banner-text ">Our users Review</h1>
             </div>
             <Row xs={1} md={3} className="my-2 d-flex justify-content-center align-items-center gy-4">
             {reviews.map((review, index) => (

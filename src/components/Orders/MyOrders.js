@@ -37,8 +37,11 @@ const MyOrders = () => {
           };
     return (
         <div>
-            <h2 className="my">Data For : {user.email}</h2>
+          <h1 className="global-text text-center"> Hello {user?.displayName}, This is your your Dashboard.</h1>
+          <h1 className="global-text text-center"> Here are your order details</h1>
+            {/* <h2 className="">Data For : {user.email}</h2> */}
             <br />
+            
             <div className="login-orders">
             <Table responsive="sm">
                 <thead>
@@ -89,6 +92,16 @@ const MyOrders = () => {
              
                 </Table>
              </div>
+             <div className="bg-primary py-3 d-flex justify-content-around align-items-center text-light mt-5">
+                <h4>Follow us on our social media for the latest updates.</h4>
+                <div className="">
+                    <i className="fab fa-facebook me-3 icon"></i>
+                    <i className="fab fa-instagram me-3"></i>
+                    <i className="fab fa-tiktok me-3"></i>
+                    <i className="fab fa-twitter me-3"></i>
+                    <i className="fab fa-pinterest-square"></i>
+                </div>
+            </div>
         </div>
     );
 };

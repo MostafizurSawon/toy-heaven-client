@@ -1,4 +1,5 @@
-import { Container, Typography, TextField, Button, CircularProgress, Alert } from '@mui/material';
+import { Container, Typography, TextField, Button, Alert } from '@mui/material';
+import LinearProgress from '@mui/material/LinearProgress';
 import React, { useState } from 'react';
 import { Grid } from '@mui/material';
 
@@ -78,7 +79,7 @@ const Register = () => {
                     </form>}
                     <hr />
                     <Button onClick={handleGoogleSignIn} variant="contained">Google Sign In</Button>
-                    {isLoading && <CircularProgress />}
+                    {isLoading && <LinearProgress />}
                     {user?.email && <Alert severity="success">
                           <AlertTitle>Done</AlertTitle>
                          User Created — <strong>Successfully!</strong>

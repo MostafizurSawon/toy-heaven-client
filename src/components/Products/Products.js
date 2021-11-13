@@ -17,8 +17,8 @@ const Products = () => {
 
     return (
         <div>
-            <div className="mt-5 text-center bg-info text-light bold py-5">
-              <h1 className="banner-text">Some of our Toy Collection</h1>
+            <div className="mt-5 text-center bg-light bold py-5">
+              <h1 className="banner-text">Some of our Toy Collections</h1>
             </div>
             <Row xs={1} md={3} className="my-2 d-flex justify-content-center align-items-center gy-4">
             {products.slice(0,6).map((product, index) => (

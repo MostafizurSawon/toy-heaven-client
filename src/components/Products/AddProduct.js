@@ -35,7 +35,7 @@ const AddProduct = () => {
                 <br />
                 <input className="my-1 py-2 w-100" type="url" {...register("image")}  placeholder="image-url"/>
                 <br />
-                <input className="my-1 py-2 w-100 custom-btnn btn-info" type="submit" />
+                <input className="my-1 py-2 w-100 banner-button" type="submit" />
             </form>
 
             <div className="my-5"></div>

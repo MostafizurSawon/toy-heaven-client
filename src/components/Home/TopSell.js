@@ -8,7 +8,7 @@ import InfoIcon from '@mui/icons-material/Info';
 export default function TopSell() {
   return (
     <>
-    <h1 className=" text-center mt-5">Our Top Selling toys</h1>
+    <h1 className="global-text text-center mt-5 bg-light py-5">Our Top Selling toys</h1>
 
     <ImageList sx={{ height: 600, marginTop: 5}}>
       <ImageListItem key="Subheader" cols={2}>

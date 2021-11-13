@@ -1,11 +1,11 @@
-import { CircularProgress } from '@mui/material';
+import LinearProgress from '@mui/material/LinearProgress';
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const AdminRoute = ({ children, ...rest }) => {
     const { user, admin, isLoading } = useAuth();
-    if (isLoading) { return <CircularProgress /> }
+    if (isLoading) { return <LinearProgress /> }
     return (
         <Route
             {...rest}
@@ -15,7 +15,7 @@ const AdminRoute = ({ children, ...rest }) => {
                 ) : (
                     <Redirect
                         to={{
-                            pathname: "/",
+                            pathname: "/dashboard",
                             state: { from: location }
                         }}
                     />

@@ -17,8 +17,8 @@
 .custom {
   text-decoration: none;
   color: rgb(56, 54, 54);
-  margin-left: 0px;
-  font-size: 20px;
+  margin-left: 5px;
+  font-size: 16px;
 }
 
 .custom:hover {
@@ -49,7 +49,6 @@
   transition-duration: 0.3s;
 }
 
-.header-pic-size {
-  height: 40px;
-  width: 40px;
+.header-user {
+  max-width: 170px;
 }

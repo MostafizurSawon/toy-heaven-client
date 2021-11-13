@@ -1,11 +1,13 @@
-.footer {
-  background-color: rgb(216, 216, 189);
-  color: rgb(37, 34, 34);
+.footer-half {
+  background-image: url(../../images/e.gif);
+  background-repeat: no-repeat;
+  background-position-y: center;
 }
 
 .footer-border {
-  border-bottom: 1px solid white;
-  width: 10%;
+  padding-bottom: 3px;
+  border-bottom: 2px solid rgb(194, 221, 96);
+  width: 20%;
 }
 
 a {
@@ -21,6 +23,6 @@ a:hover {
 }
 
 .fab:hover {
-  color: blue;
-  font-size: 17px;
+  color: rgb(238, 43, 43);
+  cursor: pointer;
 }

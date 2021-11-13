@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import Header from '../Header/Header';
 import './products.css';
 
 const TakeProduct = () => {
@@ -36,7 +37,8 @@ const TakeProduct = () => {
 
 
     return (
-        <div className=" py-5">
+        <div>
+          <Header></Header>
             <h1 className="my-2 text-center banner-text mt-3">
                 Please provide your information.  
             </h1>
@@ -57,7 +59,8 @@ const TakeProduct = () => {
                 <br />
                 <input  className="my-1 py-2 w-100"  readOnly={true} type="text" defaultValue="Pending" {...register("status")} />
                 <br />
-                <input  className="my-1 py-2 w-100 custom-btnn"  type="submit" />
+                
+                <input  className="my-1 py-2 w-100 banner-button"  type="submit" />
             </form>
             </Col>
             <Col sm={12} md={7} className="ps-4">

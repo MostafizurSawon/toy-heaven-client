@@ -1,24 +1,16 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import './Footer.css';
+import footlogo from "./../../images/bb.gif"
 
 const Footer = () => {
     return (
         <Row className=" footer pt-5">
-            <Col sm= {3}>
-           
+            <Col className="footer-half" sm= {6}>
             </Col>
+            
             <Col sm= {3}>
-            <h2>About us<h2 className="footer-border"></h2> </h2>
-                
-                <Row className="d-flex align-items-center py-2">
-                    <p>The rain that falls today, doesn’t fall tomorrow.- Dutch saying Well, I’m not sure about that proverb, because the forecast is for rain again tomorrow. Ah well, we are used to rain and at least we got a mostly sunny day yesterday.</p>
-
-                    <p>All i have to say is, We are a growing company. Please support us and we will make sure to make your experience best. Vice versa</p>
-                </Row>
-            </Col>
-            <Col sm= {3}>
-                <h2>Top Services <h2 className="footer-border"></h2> </h2>
+                <h2>Support <h2 className="footer-border"></h2> </h2>
                 <Row className="d-flex align-items-center py-2">
                     <Col sm={5}>
                         <img src="https://image.freepik.com/free-vector/illustration-helping-hands-support-icons_53876-6156.jpg" alt="" className="image-fluid w-100" />
@@ -37,7 +29,13 @@ const Footer = () => {
                 </Row>
             </Col>
             <Col sm= {3}>
+             <h2>About us<h2 className="footer-border"></h2> </h2>
                 
+                <Row className="d-flex align-items-center py-2">
+                    <p>The rain that falls today, doesn’t fall tomorrow.- Dutch saying Well, I’m not sure about that proverb, because the forecast is for rain again tomorrow. Ah well, we are used to rain and at least we got a mostly sunny day yesterday.</p>
+
+                    <p>All i have to say is, We are a growing company. Please support us and we will make sure to make your experience best. Vice versa</p>
+                    </Row>
             </Col>
             <div className="bg-dark py-3 d-flex justify-content-around align-items-center text-light">
                 <h6>© Copyright by Toy Heaven 2021</h6>

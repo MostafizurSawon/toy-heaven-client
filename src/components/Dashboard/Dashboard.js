@@ -27,16 +27,22 @@ import GiveReview from './GiveReview';
 import Pay from './Pay';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
+import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import StoreOutlinedIcon from '@mui/icons-material/StoreOutlined';
+import LocalAtmOutlinedIcon from '@mui/icons-material/LocalAtmOutlined';
+import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
+import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import ManageProducts from './ManageProducts';
 
-const drawerWidth = 320;
-const drawerHeight = 350;
-
-
+const drawerWidth = 250;
 function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
-    const { admin,logout } = useAuth();
+    const { admin,logout, user } = useAuth();
+    console.log(user);
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -46,23 +52,42 @@ function Dashboard(props) {
             {/* <Toolbar /> */}
             <h2 className="text-center my-4">DashBoard</h2>
             <Divider />
-            <Link to={`${url}/my-orders`}><Button color="success">My Orders</Button></Link>
+            <Box sx={{ml: 2}}>
+            <Link to={`${url}/my-orders`}><Button color="success"><Fab sx={{ mr: 2 }} size="small" color="success">
+                    <ShoppingCartOutlinedIcon/>
+                   </Fab>My Orders</Button></Link>
             <br />
-            <Link to={`${url}/pay`}><Button color="success">Pay Now</Button></Link>
+            <Link to={`${url}/pay`}><Button color="success"><Fab sx={{ mr: 2 }} size="small" color="success">
+                    <LocalAtmOutlinedIcon/>
+                   </Fab>Pay Now</Button></Link>
             <br />
-            <Link to={`${url}/my-review`}><Button color="success">Give a review</Button></Link>
+            <Link to={`${url}/my-review`}><Button color="success"><Fab sx={{ mr: 2 }} size="small" color="success">
+                    <StarBorderOutlinedIcon/>
+                   </Fab>Give a review</Button></Link>
             <br />
             {admin && <Box>
-                <Link to={`${url}/allOrders`}><Button color="success">All Orders</Button></Link>
-                <br />
-                <Link to={`${url}/makeAdmin`}><Button color="success">Make Admin</Button></Link>
+                <Link to={`${url}/allOrders`}><Button color="primary"><Fab sx={{ mr: 2 }} size="small" color="primary">
+                <StoreOutlinedIcon/>
+                   </Fab>All Orders</Button></Link>
+               
                 <br />
                 <Link to={`${url}/add-product`}><Button color="primary"><Fab sx={{ mr: 2 }} size="small" color="primary" aria-label="add">
-  <AddIcon />
-</Fab>Add Product</Button></Link>
+                 <AddIcon />
+                </Fab>Add Product</Button></Link>
+                <Link to={`${url}/manage-product`}><Button color="primary"><Fab sx={{ mr: 2 }} size="small" color="primary" aria-label="add">
+                 <ProductionQuantityLimitsOutlinedIcon />
+                </Fab>Manage products</Button></Link>
+                <br />
+                <Link to={`${url}/makeAdmin`}><Button color="primary">
+                <Fab sx={{ mr: 2 }} size="small" color="primary">
+                    <AdminPanelSettingsOutlinedIcon/>
+                </Fab> Make Admin</Button></Link>
             </Box>}
-            <Link to="/register" onClick={logout}><Button color="error"> Logout <i className="ms-2 fas fa-sign-out-alt"></i></Button>
+            <Link to="/register" onClick={logout}><Button sx={{ mt: 3}} color="error"><Fab sx={{ mr: 2 }} size="small" color="error">
+                 <LogoutOutlinedIcon />
+                </Fab> Logout </Button>
             </Link>
+            </Box>
         </div>
     );
 
@@ -78,7 +103,7 @@ function Dashboard(props) {
                     ml: { sm: `${drawerWidth}px` },
                 }}
             >
-                {/* <Toolbar>
+                 <Toolbar>
                     <IconButton
                         color="success"
                         aria-label="open drawer"
@@ -96,9 +121,12 @@ function Dashboard(props) {
                         <NavLink className="mx-3" activeClassName="activeStyle" to="/all-products">
                                   Products
                         </NavLink>
+                        <NavLink className="mx-3" activeClassName="activeStyle" to="/all-products">
+                               Hello @{user?.displayName}
+                        </NavLink>
 
                     </Typography>
-                </Toolbar> */}
+                </Toolbar> 
             </AppBar> 
             <Box
                 component="nav"
@@ -124,8 +152,7 @@ function Dashboard(props) {
                     variant="permanent"
                     sx={{
                         display: { xs: 'none', sm: 'block' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth,
-                    height: drawerHeight },
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth},
                     }}
                     open
                 >
@@ -153,6 +180,9 @@ function Dashboard(props) {
                     </Route>
                     <AdminRoute path={`${path}/allorders`}>
                         <AllOrders></AllOrders>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manage-product`}>
+                        <ManageProducts></ManageProducts>
                     </AdminRoute>
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>

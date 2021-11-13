@@ -6,7 +6,7 @@ import './Header.css';
 import useAuth from './../../hooks/useAuth';
 import { styled } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
-import logo from "./../../images/logo.gif";
+import logo from "./../../images/logo.png";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -47,7 +47,7 @@ const Header = () => {
                     <Navbar.Brand>
                     <Nav.Link> 
                         <NavLink exact="true" to="/">
-                            <img className="w-50" src={logo} alt="" />
+                            <img className="w-100" src={logo} alt="" />
                         </NavLink>
                     </Nav.Link>
                     </Navbar.Brand>
@@ -63,11 +63,11 @@ const Header = () => {
                                   Products
                         </NavLink>
                         </Nav.Link>
-                        <Nav.Link>
+                        {user.email &&  <Nav.Link>
                         <NavLink className="custom" activeClassName="activeStyle" to="/dashboard">
                                   Dashboard
                         </NavLink>
-                        </Nav.Link>
+                        </Nav.Link>}
 
                         {user.email && 
                         <Nav.Link>
@@ -83,7 +83,7 @@ const Header = () => {
 
                         {user.email && 
                         <Nav.Link>
-                        <div>{user?.displayName}</div>
+                        <div className="header-user">{user?.displayName}</div>
                         
                         </Nav.Link>}
                         {

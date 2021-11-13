@@ -22,8 +22,12 @@ function App() {
     <div className="container-fluid custom-default">
       <AuthProvider>
       <Router>
-        <Header></Header>
+        
         <Switch>
+        
+          {/* <Route>
+          <Header></Header>
+          </Route> */}
           <Route exact path="/">
             <Home></Home>
           </Route>
@@ -59,7 +63,7 @@ function App() {
             <NotFound></NotFound>
           </Route>
         </Switch>
-        <Footer/>
+        
       </Router>
       </AuthProvider>
     </div>

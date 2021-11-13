@@ -3,7 +3,9 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { Card, Col, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Header from '../Header/Header';
 import './products.css';
+import Footer from './../Footer/Footer';
 
 const AllProducts = () => {
     const [products, setProducts] = useState([]);
@@ -15,6 +17,7 @@ const AllProducts = () => {
   
     return (
         <>
+        <Header></Header>
             <div className="mt-5 text-center bg-products text-light bold py-5">
             </div>
             <Row xs={1} md={3} className="my-2 d-flex justify-content-center align-items-center gy-4">
@@ -41,6 +44,7 @@ const AllProducts = () => {
                 </Col>
             ))}
             </Row>
+            <Footer/>
         </>
     );
 };

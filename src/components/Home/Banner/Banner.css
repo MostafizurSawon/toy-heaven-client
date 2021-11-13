@@ -17,6 +17,13 @@
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
 }
+.global-text {
+  color: white;
+  font-weight: 800;
+  font-size: 35px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
 .banner-span {
   color: gold;
   font-weight: 800;
@@ -33,7 +40,7 @@
 }
 
 .banner-button {
-  background-color: white;
+  background-color: rgb(230, 222, 115);
   padding: 10px 30px;
   border: 0;
   font-weight: 600;

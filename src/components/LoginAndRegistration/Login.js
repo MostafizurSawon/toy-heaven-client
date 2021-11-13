@@ -55,7 +55,8 @@ const Login = () => {
                             to="/register">
                             <Button variant="text">New User? Please Register</Button>
                         </NavLink>
-                        {isLoading && <LinearProgress />}
+                        {isLoading && 
+                        <LinearProgress />}
                         {user?.email && <Alert severity="success">
                           <AlertTitle>Done</AlertTitle>
                          Login — <strong>Successfully!</strong>

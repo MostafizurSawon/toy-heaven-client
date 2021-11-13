@@ -23,9 +23,8 @@ const GiveReview = () => {
         <Container>
             
             <div className="my-3">
-                <h2>
-                     Give us your honest Review
-                     
+                <h2 className="global-text text-center">
+                    If you are satisfied with our sevice please give us a positive review.
                 </h2>           
             </div>
             
@@ -43,7 +42,16 @@ const GiveReview = () => {
                 <input className="my-1 py-2 w-100 custom-btnn btn-info" type="submit" />
             </form>
 
-            <div className="my-5"></div>
+            <div className="bg-primary py-3 d-flex justify-content-around align-items-center text-light mt-5">
+                <h4>Follow us on our social media for the latest updates.</h4>
+                <div className="">
+                    <i className="fab fa-facebook me-3 icon"></i>
+                    <i className="fab fa-instagram me-3"></i>
+                    <i className="fab fa-tiktok me-3"></i>
+                    <i className="fab fa-twitter me-3"></i>
+                    <i className="fab fa-pinterest-square"></i>
+                </div>
+            </div>
         </Container>
     );
 };
