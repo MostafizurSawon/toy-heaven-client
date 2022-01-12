@@ -1,16 +1,18 @@
 import { Container, Typography, TextField, Button, Alert, AlertTitle } from '@mui/material';
 import React, { useState } from 'react';
 import { Grid } from '@mui/material';
-import { NavLink, useLocation, useHistory } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from './../../hooks/useAuth';
 import LinearProgress from '@mui/material/LinearProgress';
+import Header from '../Header/Header';
+import Footer from './../Footer/Footer';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
     const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth();
 
     const location = useLocation();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -20,15 +22,16 @@ const Login = () => {
         setLoginData(newLoginData);
     }
     const handleLoginSubmit = e => {
-        loginUser(loginData.email, loginData.password, location, history);
+        loginUser(loginData.email, loginData.password, location, navigate);
         e.preventDefault();
     }
 
     const handleGoogleSignIn = () => {
-        signInWithGoogle(location, history)
+        signInWithGoogle(location, navigate)
     }
     return (
         <Container>
+             <Header></Header>
             <Grid container spacing={2}>
                 <Grid item sx={{ mt: 8 }} xs={12} md={6}>
                     <Typography variant="body1" gutterBottom>Login</Typography>
@@ -70,6 +73,7 @@ const Login = () => {
                     <img style={{ width: '100%' }} src="https://image.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg" alt="" />
                 </Grid>
             </Grid>
+            <Footer></Footer>
         </Container>
     );
 };

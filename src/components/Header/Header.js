@@ -2,10 +2,10 @@ import React from 'react';
 import {  Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
-import './Header.css';
-import useAuth from './../../hooks/useAuth';
 import { styled } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
+import './Header.css';
+import useAuth from './../../hooks/useAuth';
 import logo from "./../../images/logo.png";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -39,7 +39,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 const Header = () => {
     const { user, logout } = useAuth();
-    console.log(user);
+    // console.log(user);
     return (
         <>
             <Navbar bg="light" variant="light" className="justify-content-end" sticky="top" collapseOnSelect expand="lg" >
@@ -49,22 +49,23 @@ const Header = () => {
                         <NavLink exact="true" to="/">
                             <img className="w-100" src={logo} alt="" />
                         </NavLink>
+                        {/* <p >lorem</p> */}
                     </Nav.Link>
                     </Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <Nav.Link>
-                        <NavLink className="custom" activeClassName="activeStyle" to="/home">
+                        <NavLink className={(nav)=> (nav.isActive ?  "activeStyle" : 'custom' )} to="/home">
                                   Home
                         </NavLink>
                         </Nav.Link>
                         <Nav.Link>
-                        <NavLink className="custom" activeClassName="activeStyle" to="/all-products">
+                        <NavLink  className={(nav)=> (nav.isActive ?  "activeStyle" : "custom" )} to="/all-products">
                                   Products
                         </NavLink>
                         </Nav.Link>
                         {user.email &&  <Nav.Link>
-                        <NavLink className="custom" activeClassName="activeStyle" to="/dashboard">
+                        <NavLink  className={(nav)=> (nav.isActive ?  "activeStyle" : "custom" )} to="/dashboard">
                                   Dashboard
                         </NavLink>
                         </Nav.Link>}
@@ -97,13 +98,10 @@ const Header = () => {
                         <NavLink className="custom d-flex align-items-center " activeClassName="activeStyle" to="/register">
                         <i class="fas fa-user-plus"></i> Register 
                         </NavLink>
-                        </Nav.Link>}
-
-                        
+                        </Nav.Link>} 
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            
         </>
     );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Card, Col, Row, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './products.css';
 
 
@@ -35,11 +35,11 @@ const Products = () => {
                         </Card.Text>
                         </Card.Body>
                         
-                        <Link to={`/products/${product._id}`}>
-                        <div className="d-grid mx-auto">
+                        <NavLink to={`/products/${product._id}`}>
+                        <div className="text-center">
                         <Button className="banner-button text-dark" variant="success" size="lg">Purchase Now</Button>
                         </div>
-                        </Link>
+                        </NavLink>
                         
                     </Card>
                 </Col>

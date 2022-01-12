@@ -14,23 +14,9 @@
   color: rgb(72, 75, 72);
 }
 
-.custom {
-  text-decoration: none;
-  color: rgb(56, 54, 54);
-  margin-left: 5px;
-  font-size: 16px;
-}
-
-.custom:hover {
-  color: rgb(37, 224, 37);
-  /* border-bottom: 2px solid rgb(105, 109, 106); */
-  padding-bottom: 2px;
-  /* border-radius: 3px; */
-}
-
 .custom-logout {
   text-decoration: none;
-  color: rgb(245, 243, 243);
+  color: rgb(245, 243, 244);
   margin-left: 10px;
   font-size: 15px;
   font-weight: 600;
@@ -44,11 +30,26 @@
 }
 
 .activeStyle {
-  color: rgb(176, 179, 6);
-  padding: 5px;
+  text-decoration: none;
+  color: rgb(126, 145, 21);
+  padding: 15px;
   transition-duration: 0.3s;
 }
 
 .header-user {
   max-width: 170px;
+}
+
+.custom {
+  text-decoration: none;
+  color: rgb(56, 54, 54);
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.custom:hover {
+  color: rgb(7, 134, 7);
+  /* border-bottom: 2px solid rgb(105, 109, 106); */
+  padding-bottom: 2px;
+  border-radius: 3px;
 }

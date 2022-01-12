@@ -9,21 +9,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import {
-    Switch,
-    Route,
     Link,
-    useRouteMatch
+    Outlet
 } from "react-router-dom";
 import { Button } from '@mui/material';
 import useAuth from '../../hooks/useAuth';
-import AdminRoute from '../LoginAndRegistration/AdminRoute/AdminRoute';
-import MyOrders from '../Orders/MyOrders';
-import AddProduct from '../Products/AddProduct';
-import MakeAdmin from './MakeAdmin/MakeAdmin';
-import AllOrders from '../Orders/AllOrders';
 import { NavLink } from 'react-router-dom';
-import GiveReview from './GiveReview';
-import Pay from './Pay';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
@@ -33,13 +24,45 @@ import LocalAtmOutlinedIcon from '@mui/icons-material/LocalAtmOutlined';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
-import ManageProducts from './ManageProducts';
+import {  Container, Nav, Navbar } from 'react-bootstrap';
+import Avatar from '@mui/material/Avatar';
+import { styled } from '@mui/material/styles';
+import Badge from '@mui/material/Badge';
+import './Dashboard.css';
+
+const StyledBadge = styled(Badge)(({ theme }) => ({
+    '& .MuiBadge-badge': {
+      backgroundColor: '#44b700',
+      color: '#44b700',
+      boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+      '&::after': {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        borderRadius: '50%',
+        animation: 'ripple 1.2s infinite ease-in-out',
+        border: '1px solid currentColor',
+        content: '""',
+      },
+    },
+    '@keyframes ripple': {
+      '0%': {
+        transform: 'scale(.8)',
+        opacity: 1,
+      },
+      '100%': {
+        transform: 'scale(2.4)',
+        opacity: 0,
+      },
+    },
+  }));
 
 const drawerWidth = 250;
 function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    let { path, url } = useRouteMatch();
     const { admin,logout, user } = useAuth();
     console.log(user);
     const handleDrawerToggle = () => {
@@ -52,32 +75,32 @@ function Dashboard(props) {
             <h2 className="text-center my-4">DashBoard</h2>
             <Divider />
             <Box sx={{ml: 2}}>
-            <Link to={`${url}/my-orders`}><Button color="success"><Fab sx={{ mr: 2 }} size="small" color="success">
+            <Link to={`my-orders`}><Button color="success"><Fab sx={{ mr: 2 }} size="small" color="success">
                     <ShoppingCartOutlinedIcon/>
                    </Fab>My Orders</Button></Link>
             <br />
-            <Link to={`${url}/pay`}><Button color="success"><Fab sx={{ mr: 2 }} size="small" color="success">
+            <Link to={`pay`}><Button color="success"><Fab sx={{ mr: 2 }} size="small" color="success">
                     <LocalAtmOutlinedIcon/>
                    </Fab>Pay Now</Button></Link>
             <br />
-            <Link to={`${url}/my-review`}><Button color="success"><Fab sx={{ mr: 2 }} size="small" color="success">
+            <Link to={`my-review`}><Button color="success"><Fab sx={{ mr: 2 }} size="small" color="success">
                     <StarBorderOutlinedIcon/>
                    </Fab>Give a review</Button></Link>
             <br />
             {admin && <Box>
-                <Link to={`${url}/allOrders`}><Button color="primary"><Fab sx={{ mr: 2 }} size="small" color="primary">
+                <Link to={`allOrders`}><Button color="primary"><Fab sx={{ mr: 2 }} size="small" color="primary">
                 <StoreOutlinedIcon/>
                    </Fab>All Orders</Button></Link>
                
                 <br />
-                <Link to={`${url}/add-product`}><Button color="primary"><Fab sx={{ mr: 2 }} size="small" color="primary" aria-label="add">
+                <Link to={`add-product`}><Button color="primary"><Fab sx={{ mr: 2 }} size="small" color="primary" aria-label="add">
                  <AddIcon />
                 </Fab>Add Product</Button></Link>
-                <Link to={`${url}/manage-product`}><Button color="primary"><Fab sx={{ mr: 2 }} size="small" color="primary" aria-label="add">
+                <Link to={`manage-product`}><Button color="primary"><Fab sx={{ mr: 2 }} size="small" color="primary" aria-label="add">
                  <ProductionQuantityLimitsOutlinedIcon />
                 </Fab>Manage products</Button></Link>
                 <br />
-                <Link to={`${url}/makeAdmin`}><Button color="primary">
+                <Link to={`makeAdmin`}><Button color="primary">
                 <Fab sx={{ mr: 2 }} size="small" color="primary">
                     <AdminPanelSettingsOutlinedIcon/>
                 </Fab> Make Admin</Button></Link>
@@ -114,16 +137,28 @@ function Dashboard(props) {
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
                     
-                        <NavLink className="" activeClassName="activeStyle" to="/home">
+                    <Container className="d-flex">
+                        <Nav.Link>
+                        <NavLink className="dash-custom" to="/home">
                                   Home
                         </NavLink>
-                        <NavLink className="mx-3" activeClassName="activeStyle" to="/all-products">
+                        </Nav.Link>
+                        <Nav.Link>
+                        <NavLink  className="dash-custom" to="/all-products">
                                   Products
                         </NavLink>
-                        <NavLink className="mx-3" activeClassName="activeStyle" to="/all-products">
-                               Hello @{user?.displayName}
+                        </Nav.Link>
+                        <Nav.Link>
+                        <NavLink  className="dash-custom" to="/dashboard">
+                                  Dashboard
                         </NavLink>
-
+                        </Nav.Link>
+                        
+                        <Nav.Link>
+                        <div className="dash-custom">Hello@{user?.displayName}</div>
+                        
+                        </Nav.Link>   
+                    </Container>
                     </Typography>
                 </Toolbar> 
             </AppBar> 
@@ -164,32 +199,9 @@ function Dashboard(props) {
             >
                 <Toolbar />
 
-                <Switch>
-                    <Route exact path={`${path}`}>
-                        <MyOrders></MyOrders>
-                    </Route>
-                    <Route exact path={`${path}/my-orders`}>
-                        <MyOrders></MyOrders>
-                    </Route>
-                    <Route exact path={`${path}/pay`}>
-                        <Pay></Pay>
-                    </Route>
-                    <Route exact path={`${path}/my-review`}>
-                        <GiveReview></GiveReview>
-                    </Route>
-                    <AdminRoute path={`${path}/allorders`}>
-                        <AllOrders></AllOrders>
-                    </AdminRoute>
-                    <AdminRoute path={`${path}/manage-product`}>
-                        <ManageProducts></ManageProducts>
-                    </AdminRoute>
-                    <AdminRoute path={`${path}/makeAdmin`}>
-                        <MakeAdmin></MakeAdmin>
-                    </AdminRoute>
-                    <AdminRoute path={`${path}/add-product`}>
-                        <AddProduct></AddProduct>
-                    </AdminRoute>
-                </Switch>
+                <Outlet>
+                    
+                </Outlet>
 
             </Box>
         </Box>

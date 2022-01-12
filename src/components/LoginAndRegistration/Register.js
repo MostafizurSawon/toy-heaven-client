@@ -3,14 +3,16 @@ import LinearProgress from '@mui/material/LinearProgress';
 import React, { useState } from 'react';
 import { Grid } from '@mui/material';
 
-import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import useAuth from './../../hooks/useAuth';
 import { AlertTitle } from '@mui/material';
+import Header from '../Header/Header';
+import Footer from './../Footer/Footer';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
-    const history = useHistory();
     const location = useLocation();
+    const navigate = useNavigate();
     const { user, registerUser, signInWithGoogle, isLoading, authError } = useAuth();
 
     const handleOnBlur = e => {
@@ -25,15 +27,18 @@ const Register = () => {
             alert('Your password did not match');
             return;
         }
-        registerUser(loginData.email, loginData.password, loginData.name, history);
+        registerUser(loginData.email, loginData.password, loginData.name, navigate);
         e.preventDefault();
     }
 
     const handleGoogleSignIn = () => {
-      signInWithGoogle(location, history)
+      signInWithGoogle(location, navigate)
   }
     return (
+        <>
+        <Header></Header>
         <Container>
+             
             <Grid container spacing={2}>
                 <Grid item sx={{ mt: 8 }} xs={12} md={6}>
                     <Typography variant="body1" gutterBottom>Register Your Account Here</Typography>
@@ -91,6 +96,8 @@ const Register = () => {
                 </Grid>
             </Grid>
         </Container>
+        <Footer></Footer>
+        </>
     );
 };
 
